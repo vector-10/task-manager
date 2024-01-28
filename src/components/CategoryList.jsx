@@ -1,8 +1,17 @@
 import React from 'react'
+import { useAppContext } from '../context/AppContext'
 
 const CategoryList = () => {
+  const { categories } = useAppContext();
   return (
-    <div>CategoryList</div>
+    <div>
+      <h2>Categories</h2>
+      <ul>
+        {categories.map((category) => (
+          <li key={category.id}>{category.name}</li>
+        ))}
+      </ul>
+    </div>
   )
 }
 

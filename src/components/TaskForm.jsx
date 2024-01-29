@@ -42,7 +42,6 @@ const TaskForm = () => {
     <div>
       <h2>Add New Task</h2>
       <div className="flex  ">
-       <div className='flex flex-col'>
        <input
           type="text"
           placeholder="Task title"
@@ -56,7 +55,6 @@ const TaskForm = () => {
           onChange={handleDescriptionChange}
           className=" border border-gray-300 "
         />
-       </div>
         <select
           value={selectedCategory}
           onChange={handleCategoryChange}

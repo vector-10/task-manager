@@ -6,6 +6,7 @@ const TaskList = () => {
   const { tasks, completeTask, categories } = useAppContext();
   const [selectedCategory, setSelectedCategory] = useState('');
 
+
   const handleCompleteTask = (taskId) => {
     completeTask(taskId);
   };
@@ -37,19 +38,38 @@ const TaskList = () => {
           ))}
         </select>
       </div>
-      <ul>
-        {filteredTasks.map((task) => (
-          <li key={task.id} className={task.completed ? 'completed' : ''}>
-            {task.title}: {task.descripton} - {task.completed ? 'Completed' : 'Pending'}
-            <button
-              onClick={() => handleCompleteTask(task.id)}
-              className="ml-2 text-blue-500"
-            >
-              {task.completed ? 'Undo' : 'Complete'}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {/* Displaying tasks based on the selected category */}
+    {filteredTasks.map((task) => (
+      <tr key={task.id} className={task.completed ? 'completed' : ''}>
+        <td><strong>{task.title}</strong></td>
+        <td>{task.description}</td>
+        <td>{task.completed ? 'Completed' : 'Pending'}</td>
+        <td>{task.category ? task.category.name : 'N/A'}</td>
+        <td>
+          {/* Button to complete/undo a task */}
+          <button
+            onClick={() => handleCompleteTask(task.id)}
+            className="text-blue-500"
+          >
+            {task.completed ? 'Undo' : 'Complete'}
+          </button>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
     </div>
   );
 };

@@ -23,13 +23,13 @@ const TaskList = () => {
     <div>
       <h2>Task List</h2>
       <div>
-        <label className="mr-2">Filter by Category:</label>
+        <label className="mr-2">Filter tasks by Category:</label>
         <select
           value={selectedCategory}
           onChange={handleCategoryFilter}
           className="p-2 border border-gray-300"
         >
-          <option value="">-- All Categories --</option>
+          <option value=""> All Categories </option>
           {categories.map((category) => (
             <option key={category.id} value={category.name}>
               {category.name}
@@ -40,7 +40,7 @@ const TaskList = () => {
       <ul>
         {filteredTasks.map((task) => (
           <li key={task.id} className={task.completed ? 'completed' : ''}>
-            {task.title} - {task.completed ? 'Completed' : 'Pending'}
+            {task.title}: {task.descripton} - {task.completed ? 'Completed' : 'Pending'}
             <button
               onClick={() => handleCompleteTask(task.id)}
               className="ml-2 text-blue-500"

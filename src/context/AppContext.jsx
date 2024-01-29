@@ -8,10 +8,10 @@ export const AppProvider = ({ children }) => {
     const [categories, setCategories] = useState([
     { id: '1', name: 'Work' },
     { id: '2', name: 'Personal' },
-    { id: '2', name: 'School' },
-    { id: '2', name: 'Sports' },
-    { id: '2', name: 'Fitness' },
-    { id: '2', name: 'Love' }
+    { id: '3', name: 'School' },
+    { id: '4', name: 'Sports' },
+    { id: '5', name: 'Fitness' },
+    { id: '6', name: 'Love' }
     ]);
 
     // function to add a task to state

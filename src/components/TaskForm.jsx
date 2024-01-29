@@ -21,13 +21,13 @@ const TaskForm = () => {
   };
 
   const handleAddTask = () => {
-    if (newTask.trim() !== '' && selectedCategory !== '') {
+    if (newTask.trim() !== '' && description !== '' && selectedCategory !== '') {
       const category = categories.find((cat) => cat.name === selectedCategory);
 
       addTask({
         id: new Date().getTime().toString(),
         title: newTask,
-        description,
+        description: description,
         completed: false,
         category: category || null,
       });
@@ -41,8 +41,9 @@ const TaskForm = () => {
   return (
     <div>
       <h2>Add New Task</h2>
-      <div className="flex flex-col md:flex-row items-center">
-        <input
+      <div className="flex  ">
+       <div className='flex flex-col'>
+       <input
           type="text"
           placeholder="Task title"
           value={newTask}
@@ -53,12 +54,13 @@ const TaskForm = () => {
           placeholder="Task description"
           value={description}
           onChange={handleDescriptionChange}
-          className="md:mr-2 p-2 border border-gray-300 mt-2 md:mt-0"
+          className=" border border-gray-300 "
         />
+       </div>
         <select
           value={selectedCategory}
           onChange={handleCategoryChange}
-          className="md:mr-2 p-2 border border-gray-300 mt-2 md:mt-0"
+          className=" border border-gray-300"
         >
           <option value="">-- Select Category --</option>
           {categories.map((category) => (

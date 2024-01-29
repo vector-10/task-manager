@@ -3,25 +3,17 @@ import { AppProvider } from "./context/AppContext";
 import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
 import CategoryList from "./components/CategoryList";
-import CategorySelector from "./components/CategorySelector";
+//import CategorySelector from "./components/CategorySelector";
 
 
 function App() {
   return (
    <AppProvider>
-    <div className="App">
-        <h1>Task Manager App</h1>
-        <div className="">
-          <div className="">
+    <div className="App flex flex-col justify-center items-center">
+        <h1>Task Manager App</h1>      
             <TaskForm />
-            <TaskList />
-          </div>
-          <div className="">
-            <CategorySelector />
-            <CategoryList />
-          </div>
-        </div>
-      </div>
+            <TaskList />            
+          </div>          
    </AppProvider>
   )
 }

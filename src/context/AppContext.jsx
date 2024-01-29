@@ -2,10 +2,17 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 // to create a react context
 const AppContext = createContext();
 
-const AppProvider = ({ children }) => {
+export const AppProvider = ({ children }) => {
     // set state for tasks categories 
     const [tasks, setTasks] = useState([]);
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState([
+    { id: '1', name: 'Work' },
+    { id: '2', name: 'Personal' },
+    { id: '2', name: 'School' },
+    { id: '2', name: 'Sports' },
+    { id: '2', name: 'Fitness' },
+    { id: '2', name: 'Love' }
+    ]);
 
     // function to add a task to state
     const addTask = (task) => {
@@ -27,7 +34,7 @@ const AppProvider = ({ children }) => {
     useEffect(() => {
         const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
         const storedCategories = JSON.parse(localStorage.getItem('categories')) || [];
-
+        // set the state to the local storage item
         setTasks(storedTasks);
         setCategories(storedCategories);
     }, [])

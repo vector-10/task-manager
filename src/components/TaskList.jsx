@@ -22,7 +22,7 @@ const TaskList = () => {
 
   return (
     <div className='task manager'>
-      <h2 className='text-center'>Task List</h2>
+      <h2 className='text-center text-white text-bold'>Task List</h2>
       <div>
         <label className="mr-2">Filter tasks by Category:</label>
         <select

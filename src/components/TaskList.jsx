@@ -21,8 +21,8 @@ const TaskList = () => {
     : tasks;
 
   return (
-    <div>
-      <h2>Task List</h2>
+    <div className='task manager'>
+      <h2 className='text-center'>Task List</h2>
       <div>
         <label className="mr-2">Filter tasks by Category:</label>
         <select
@@ -38,25 +38,25 @@ const TaskList = () => {
           ))}
         </select>
       </div>
-      <table>
+      <table className='table-fixed'>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Category</th>
-      <th>Actions</th>
+      <th className='border border-slate-600 p-1'>Title</th>
+      <th className='border border-slate-600 p-1'>Description</th>
+      <th className='border border-slate-600 p-1'>Status</th>
+      <th className='border border-slate-600 p-1'>Category</th>
+      <th className='border border-slate-600 p-1'>Actions</th>
     </tr>
   </thead>
   <tbody>
     {/* Displaying tasks based on the selected category */}
     {filteredTasks.map((task) => (
       <tr key={task.id} className={task.completed ? 'completed' : ''}>
-        <td><strong>{task.title}</strong></td>
-        <td>{task.description}</td>
-        <td>{task.completed ? 'Completed' : 'Pending'}</td>
-        <td>{task.category ? task.category.name : 'N/A'}</td>
-        <td>
+        <td className='border border-slate-600 p-2'><strong>{task.title}</strong></td>
+        <td className='border border-slate-600 p-2'>{task.description}</td>
+        <td className='border border-slate-600 p-2'>{task.completed ? 'Completed' : 'Pending'}</td>
+        <td className='border border-slate-600 p-2'>{task.category ? task.category.name : 'N/A'}</td>
+        <td className='border border-slate-600 p-2'>
           {/* Button to complete/undo a task */}
           <button
             onClick={() => handleCompleteTask(task.id)}

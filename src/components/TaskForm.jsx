@@ -41,7 +41,7 @@ const TaskForm = () => {
   return (
     <div>
       <h2>Add New Task</h2>
-      <div className="flex  ">
+      <div className="flex">
        <input
           type="text"
           placeholder="Task title"
@@ -50,7 +50,7 @@ const TaskForm = () => {
           className="mr-2 p-2 border border-gray-300"
         />
         <textarea
-          placeholder="Task description"
+          placeholder="a brief task decription"
           value={description}
           onChange={handleDescriptionChange}
           className=" border border-gray-300 "
